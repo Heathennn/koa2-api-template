@@ -17,6 +17,7 @@ export const getDBBookTop250 = async (ctx, next) => {
             msg: '请求成功'
         }
         next()
-    }
-    next()
+    } else {
+        next()
+    } 
 }
