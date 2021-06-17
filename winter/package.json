@@ -1,14 +1,14 @@
 {
-  "name": "koa2-api-scaffold",
-  "version": "1.0.4",
-  "description": "Koa2 RESTful API 服务器的脚手架",
+  "name": "Gnak Api Server",
+  "version": "0.0.1",
+  "description": "Koa2 API 服务器",
   "author": "yi-ge <a@wyr.me>",
   "license": "WTFPL",
   "scripts": {
     "start": "gulp nodemon",
     "dev": "gulp",
     "build": "babel src -d dist",
-    "production": "node dist/app.js",
+    "prod": "pm2 start gulp --watch",
     "test": "jest",
     "link": "eslint .",
     "link:fix": "eslint --fix ."
