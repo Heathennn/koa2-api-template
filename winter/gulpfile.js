@@ -79,6 +79,6 @@ gulp.task('nodemon', function () {
   })
 })
 
-gulp.task('default', gulp.series('ESlint', 'ESlint_nodemon', function () {
-  // console.log('ESlin检查完成')
-}))
+// gulp.task('default', gulp.series('ESlint', 'ESlint_nodemon', function () {
+//   // console.log('ESlin检查完成')
+// }))
