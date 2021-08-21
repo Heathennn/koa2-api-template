@@ -2,7 +2,7 @@ import KoaRouter from 'koa-router'
 import controllers from '../controllers'
 
 const router = new KoaRouter({
-    prefix: '/public/db'
+    prefix: '/db'
 })
 
 export default router

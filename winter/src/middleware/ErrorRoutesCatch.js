@@ -1,3 +1,7 @@
+/**
+ * 用于接到jwt的错误码后进行特定的错误提示
+ * @returns 
+ */
 module.exports = function () {
   return function (ctx, next) {
     return next().catch((err) => {
@@ -6,10 +10,7 @@ module.exports = function () {
           ctx.status = 200
           ctx.body = {
             status: 401,
-            result: {
-              err: 'Authentication Error',
-              errInfo: 'Protected resource, use Authorization header to get access.'
-            }
+            msg: '无权限访问'
           }
           break
         default:
