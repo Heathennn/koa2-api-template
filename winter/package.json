@@ -2,16 +2,14 @@
   "name": "GnakApiServer",
   "version": "0.0.1",
   "description": "Koa2 API 服务器",
-  "author": "yi-ge <a@wyr.me>",
-  "license": "WTFPL",
+  "author": "gnak",
+  "main": "./src/app.ts",
+  "license": "MIT",
   "scripts": {
-    "start": "gulp nodemon",
+    "start": "export PORT=3000 && gulp",
     "dev": "gulp",
-    "build": "babel src -d dist",
-    "prod": "pm2 start gulp --watch",
-    "test": "jest",
-    "link": "eslint .",
-    "link:fix": "eslint --fix ."
+    "build": "gulp build",
+    "prod": "pm2 start gulp --watch"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
@@ -20,11 +18,13 @@
     "koa-compose": "^4.1.0",
     "koa-jwt": "^3.6.0",
     "koa-router": "^8.0.8",
-    "koa-static2": "^0.1.8",
+    "koa-static": "^5.0.0",
     "mongoose": "^5.12.14",
     "nodemailer": "^6.4.6",
     "promise-mysql": "^4.1.3",
-    "sequelize": "^5.21.6"
+    "sequelize": "^5.21.6",
+    "tsc-watch": "^4.5.0",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -34,9 +34,20 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.9.0",
     "@babel/runtime": "^7.9.2",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/koa": "^2.13.4",
+    "@types/koa-compress": "^4.0.3",
+    "@types/koa-favicon": "^2.0.21",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-static": "^4.0.2",
+    "@types/koa2-cors": "^2.0.2",
+    "@types/log4js": "^2.3.5",
+    "@types/node": "^16.7.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.3.0",
+    "del": "^6.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-friendly-formatter": "^4.0.1",
@@ -49,11 +60,9 @@
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-nodemon": "^2.5.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "jest": "^25.3.0",
-    "koa-logger": "^3.2.1"
-  },
-  "engines": {
-    "node": ">= 7.8.0",
-    "npm": ">= 4.2.0"
+    "koa-logger": "^3.2.1",
+    "ts-node": "^10.2.1"
   }
 }

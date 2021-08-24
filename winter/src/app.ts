@@ -1,6 +1,6 @@
 import Koa2 from 'koa'
 import KoaBody from 'koa-body'
-import KoaStatic from 'koa-static2'
+import KoaStatic from 'koa-static'
 import {
   System as SystemConfig
 } from './config'
@@ -13,7 +13,7 @@ import fs from 'fs'
 
 const app = new Koa2()
 const env = process.env.NODE_ENV || 'development' // Current mode
-
+const assetsPath = path.join(__dirname, '../assets')
 const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
 
 app
@@ -25,11 +25,11 @@ app
     }
     ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
-    ctx.set('Access-Control-Allow-Credentials', true) // 允许带上 cookie
+    ctx.set('Access-Control-Allow-Credentials', "true") // 允许带上 cookie
     return next()
   })
   .use(ErrorRoutesCatch())
-  .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
+  .use(KoaStatic(assetsPath)) // Static resource
   // 以一个动态的secret去加密
   .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] }))
   .use(KoaBody({
@@ -49,9 +49,9 @@ initLoadRouters(app)
 
 if (env === 'development') { // logger
   app.use((ctx, next) => {
-    const start = new Date()
+    const start:number = +new Date()
     return next().then(() => {
-      const ms = new Date() - start
+      const ms:any = +new Date() - start
       console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
     })
   })
