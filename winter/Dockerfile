@@ -16,4 +16,4 @@ RUN npm run build
 
 EXPOSE ${EXPOSE_PORT}
 
-ENTRYPOINT [ "node", "/app/dist/app.js" ]
+ENTRYPOINT [ "node", "/app/dist/app.ts" ]

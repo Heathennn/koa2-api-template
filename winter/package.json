@@ -1,5 +1,5 @@
 {
-  "name": "GnakApiServer",
+  "name": "Koa2_Api_Server",
   "version": "0.0.1",
   "description": "Koa2 API 服务器",
   "author": "gnak",
