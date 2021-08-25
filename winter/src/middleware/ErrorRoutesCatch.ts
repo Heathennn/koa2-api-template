@@ -1,9 +1,10 @@
+import { Context, Next } from 'koa'
 /**
  * 用于接到jwt的错误码后进行特定的错误提示
  * @returns 
  */
-module.exports = function () {
-  return function (ctx, next) {
+export default function () {
+  return function (ctx:Context, next:Next) {
     return next().catch((err) => {
       switch (err.status) {
         case 401:

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const db = mongoose.connect("mongodb://localhost:27017/fodder", {useNewUrlParser: true, useUnifiedTopology: true, user: 'gnak', pass: 'godkang75'})
+mongoose.connect("mongodb://localhost:27017/fodder", {useNewUrlParser: true, useUnifiedTopology: true, user: 'gnak', pass: 'godkang75'})
 
 // 账户的数据库模型
 const UserSchema = new mongoose.Schema({

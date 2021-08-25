@@ -1,8 +1,9 @@
-export async function getListWithPage(model, page, pageSize) {
+import { Context } from 'koa'
+export async function getListWithPage(model:any, page:number, pageSize:number) {
     return model.find().skip((page - 1) * pageSize).limit(pageSize) 
 }
 
-export const checkPagination = async (ctx) => {
+export const checkPagination = async (ctx:Context) => {
     let reqBody = ctx.request.body
     let page = +reqBody.page
     let pageSize = +reqBody.pageSize

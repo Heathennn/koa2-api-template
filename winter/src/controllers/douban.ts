@@ -1,6 +1,7 @@
 import DBBookModel from '../models/DBBook'
+import { Context } from 'koa'
 import { getListWithPage, checkPagination } from '../lib/pagination'
-export const getDBBookTop250 = async (ctx, next) => {
+export const getDBBookTop250 = async (ctx:Context, next:any) => {
     if (await checkPagination(ctx)) {
         let reqBody = ctx.request.body
         let page = +reqBody.page

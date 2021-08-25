@@ -1,6 +1,7 @@
 import UserModel from '../models/User';
+import { Context } from 'koa'
 import { Auth } from './auth';
-export const getUserList = async (ctx, next) => {
+export const getUserList = async (ctx:Context, next:any) => {
   let list = await UserModel.find();
   ctx.body = {
     data: list,
@@ -9,7 +10,7 @@ export const getUserList = async (ctx, next) => {
   next();
 };
 
-export const userLogin = async (ctx, next) => {
+export const userLogin = async (ctx:Context, next:any) => {
   let { userName, password } = ctx.request.body;
   console.log(`userName`, userName);
   if (userName === 'admin' && password === '123') {

@@ -1,10 +1,10 @@
 import KoaRouter from 'koa-router'
-import controllers from '../controllers'
+// import controllers from '../controllers'
 
 const router = new KoaRouter()
 
 export default router
-  .get('/public/get', function (ctx, next) {
+  .get('/public/get', function (ctx) {
     ctx.body = '禁止访问！'
   })
   .get('/', (ctx) => {

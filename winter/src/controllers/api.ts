@@ -1,4 +1,6 @@
-export const Get = (ctx, next) => {
+import { Context, Next } from 'koa'
+
+export const Get = (ctx:Context, next:Next) => {
   ctx.body = {
     result: 'get',
     name: ctx.params.name,
@@ -8,7 +10,7 @@ export const Get = (ctx, next) => {
   next()
 }
 
-export const Post = async (ctx, next) => {
+export const Post = async (ctx:Context, next:Next) => {
   ctx.body = {
     result: 'post',
     name: ctx.params.name,
@@ -18,7 +20,7 @@ export const Post = async (ctx, next) => {
   next()
 }
 
-export const Put = (ctx, next) => {
+export const Put = (ctx:Context, next:Next) => {
   ctx.body = {
     result: 'put',
     name: ctx.params.name,
@@ -28,7 +30,7 @@ export const Put = (ctx, next) => {
   next()
 }
 
-export const Delete = (ctx, next) => {
+export const Delete = (ctx:Context, next:Next) => {
   ctx.body = {
     result: 'delete',
     name: ctx.params.name,
